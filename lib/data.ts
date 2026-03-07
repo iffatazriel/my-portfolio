@@ -1,27 +1,24 @@
-// ============================================================
-// EDIT THIS FILE to customize your portfolio content
-// ============================================================
-
 export const siteConfig = {
-  name: "Your Name",
-  initials: "Y.Dev",
+  name: "Iffat Azriel Fitrianto",
+  initials: "Iffatazriel",
   role: "Full-Stack Developer",
   tagline: "Building things for the web",
   description:
     "Full-stack developer with a quiet obsession for clean code, thoughtful interfaces, and systems that just work.",
-  email: "hello@yourname.dev",
+  email: "iffatazrielfitrianto@gmail.com",
   location: "Indonesia",
   available: true,
   stats: [
-    { num: "5+", label: "Years exp." },
-    { num: "30+", label: "Projects" },
-    { num: "12", label: "Clients" },
+    { num: "3+", label: "Years exp." },
+    { num: "20+", label: "Projects" },
+    { num: "7", label: "Clients" },
   ],
   socials: [
-    { label: "GitHub", href: "https://github.com/yourusername" },
-    { label: "LinkedIn", href: "https://linkedin.com/in/yourusername" },
-    { label: "Twitter / X", href: "https://twitter.com/yourusername" },
-    { label: "Read.cv", href: "https://read.cv/yourusername" },
+    { label: "GitHub", href: "https://github.com/iffatazriel" },
+    { label: "LinkedIn", href: "https://linkedin.com/in/iffatazrielfitrianto" },
+    { label: "Instagram", href: "https://instagram.com/iffatazriel" },
+    { label: "Facebook", href: "https://facebook.com/iffatazriel" },
+    { label: "Read.cv", href: "https://read.cv/iffatazriel" },
   ],
 };
 
@@ -43,9 +40,8 @@ export const skills = [
   { num: "03", name: "Node.js",      type: "Backend"   },
   { num: "04", name: "PostgreSQL",   type: "Database"  },
   { num: "05", name: "Tailwind CSS", type: "Styling"   },
-  { num: "06", name: "Docker",       type: "DevOps"    },
-  { num: "07", name: "AWS / Vercel", type: "Cloud"     },
-  { num: "08", name: "Figma",        type: "Design"    },
+  { num: "06", name: "AWS / Vercel", type: "Cloud"     },
+  { num: "07", name: "Figma",        type: "Design"    },
 ];
 
 export const projects = [

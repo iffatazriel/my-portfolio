@@ -2,37 +2,35 @@
 
 import { useEffect, useRef } from "react";
 
-interface AnimatedSectionProps {
+interface AnimatedItemProps {
   children: React.ReactNode;
   className?: string;
-  id?: string;
   delay?: number;
   direction?: "up" | "left" | "right";
 }
 
-export default function AnimatedSection({
+export default function AnimatedItem({
   children,
   className = "",
-  id,
   delay = 0,
   direction = "up",
-}: AnimatedSectionProps) {
-  const ref = useRef<HTMLElement>(null);
+}: AnimatedItemProps) {
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
     const getInitialTransform = () => {
-      if (direction === "left")  return "translateX(-32px)";
-      if (direction === "right") return "translateX(32px)";
-      return "translateY(32px)";
+      if (direction === "left")  return "translateX(-24px)";
+      if (direction === "right") return "translateX(24px)";
+      return "translateY(24px)";
     };
 
     el.style.opacity = "0";
     el.style.transform = getInitialTransform();
-    el.style.transition = `opacity 0.75s cubic-bezier(0.16,1,0.3,1) ${delay}ms,
-                            transform 0.75s cubic-bezier(0.16,1,0.3,1) ${delay}ms`;
+    el.style.transition = `opacity 0.65s cubic-bezier(0.16,1,0.3,1) ${delay}ms,
+                            transform 0.65s cubic-bezier(0.16,1,0.3,1) ${delay}ms`;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -42,7 +40,7 @@ export default function AnimatedSection({
           observer.disconnect();
         }
       },
-      { threshold: 0.07 }
+      { threshold: 0.1 }
     );
 
     observer.observe(el);
@@ -50,8 +48,8 @@ export default function AnimatedSection({
   }, [delay, direction]);
 
   return (
-    <section ref={ref} id={id} className={className}>
+    <div ref={ref} className={className}>
       {children}
-    </section>
+    </div>
   );
 }

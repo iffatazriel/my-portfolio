@@ -8,6 +8,11 @@ import CursorDot from "@/components/ui/CursorDot";
 export const metadata: Metadata = {
   title: `${siteConfig.name} — ${siteConfig.role}`,
   description: siteConfig.description,
+  icons: {
+    icon: "/favicon.ico",          
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({

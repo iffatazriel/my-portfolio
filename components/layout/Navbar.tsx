@@ -15,6 +15,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -55,26 +56,40 @@ export default function Navbar() {
       top,
       behavior: "smooth",
     });
+
+    setMenuOpen(false);
   };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-16 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-16 transition-all duration-500 ${
         scrolled
           ? "py-4 bg-[#F5F2EC]/95 backdrop-blur-md border-b border-[#D9D4CB] shadow-sm"
           : "py-6 bg-transparent border-b border-transparent"
       }`}
     >
+      {/* Logo */}
       <Link
         href="/"
-        className="font-serif text-lg font-light tracking-widest text-ink transition-opacity hover:opacity-70"
+        className="font-serif text-lg font-light tracking-widest text-ink hover:opacity-70"
       >
         {siteConfig.initials.split(".")[0]}
         <span className="text-accent">.</span>
         {siteConfig.initials.split(".")[1]}
       </Link>
 
-      <ul className="flex gap-10 list-none">
+      {/* Hamburger (Mobile) */}
+      <button
+        className="md:hidden flex flex-col gap-1"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <span className="w-6 h-[2px] bg-ink"></span>
+        <span className="w-6 h-[2px] bg-ink"></span>
+        <span className="w-6 h-[2px] bg-ink"></span>
+      </button>
+
+      {/* Desktop Menu */}
+      <ul className="hidden md:flex gap-10 list-none">
         {navLinks.map((link) => {
           const isActive = activeSection === link.href.replace("#", "");
 
@@ -95,6 +110,25 @@ export default function Navbar() {
           );
         })}
       </ul>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="absolute top-full left-0 w-full bg-[#F5F2EC] border-b border-[#D9D4CB] md:hidden">
+          <ul className="flex flex-col items-center py-6 gap-6">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="font-mono text-xs tracking-widest uppercase text-ink"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }

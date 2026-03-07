@@ -6,14 +6,14 @@ export default function About() {
   return (
     <AnimatedSection
       id="about"
-      className="px-16 py-32 grid grid-cols-[1fr_2fr] gap-24 border-t border-line"
+      className="px-6 md:px-16 py-20 md:py-32 grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 md:gap-24 border-t border-line"
     >
       <div>
         <SectionLabel>01 — About</SectionLabel>
       </div>
 
       <div>
-        <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.15] mb-6">
+        <h2 className="font-serif text-[clamp(2rem,5vw,3.2rem)] font-light leading-[1.15] mb-6">
           Crafting <em className="italic text-accent">digital</em>
           <br />experiences
         </h2>
@@ -28,9 +28,7 @@ export default function About() {
           {aboutConfig.tags.map((tag) => (
             <span
               key={tag}
-              className="font-mono text-[0.65rem] tracking-widest uppercase px-3 py-1.5
-                         border border-line text-muted transition-all duration-300
-                         hover:border-accent hover:text-accent cursor-default"
+              className="font-mono text-[0.65rem] tracking-widest uppercase px-3 py-1.5 border border-line text-muted transition-all duration-300 hover:border-accent hover:text-accent cursor-default"
             >
               {tag}
             </span>

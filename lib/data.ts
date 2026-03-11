@@ -15,7 +15,7 @@ export const siteConfig = {
   ],
   socials: [
     { label: "GitHub", href: "https://github.com/iffatazriel" },
-    { label: "LinkedIn", href: "https://linkedin.com/in/iffatazrielfitrianto" },
+    { label: "LinkedIn", href: "https://linkedin.com/in/iffatazriel" },
     { label: "Instagram", href: "https://instagram.com/iffatazriel" },
     { label: "Facebook", href: "https://facebook.com/iffatazriel" },
     { label: "Read.cv", href: "https://read.cv/iffatazriel" },

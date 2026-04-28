@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
-/* Paksa light mode — override sistem OS */
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: light;
-  }
+@theme {
+  --color-bg: var(--bg);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-line: var(--line);
+  --color-card: var(--card);
 }
 
 :root {
+  color-scheme: light;
   --bg: #F5F2EC;
   --ink: #1A1814;
   --muted: #8A8580;
@@ -16,14 +19,26 @@
   --card: #EFEBE3;
 }
 
-html, body {
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #14110E;
+  --ink: #F5F2EC;
+  --muted: #A8A097;
+  --accent: #D99A5D;
+  --line: #342E27;
+  --card: #1D1915;
+}
+
+html,
+body {
   background-color: var(--bg) !important;
   color: var(--ink) !important;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* Noise texture overlay */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
@@ -33,6 +48,14 @@ body::before {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--accent); }
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+}
